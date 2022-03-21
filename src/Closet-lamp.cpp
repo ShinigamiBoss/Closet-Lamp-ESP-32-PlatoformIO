@@ -7,8 +7,12 @@ int ButtonIn = 32;
 
 void setup()
 {
+  //Setup external wakeup
+  esp_sleep_enable_ext0_wakeup(GPIO_NUM_32, 1);
+
   // initialize serial communication at 9600 bits per second:
   Serial.begin(9600);
+  Serial.println("Starting process...");
   // Set pins number
   SetPins(23, 22, 21, 19);
   InitializeLED();
@@ -16,22 +20,20 @@ void setup()
   //Set button input
   pinMode(ButtonIn, INPUT_PULLUP);
 
+  while(digitalRead(ButtonIn) == 1)
+  {
+    WriteLED(55, 221,215,0);
+  }
+
+  WriteLED(0, 0, 0,0);
+
+  Serial.println("Going to sleep...");
+
+  esp_deep_sleep_start();
   
 }
 
 void loop()
 {
-  // read the state of the pushbutton value
-  buttonState = digitalRead(ButtonIn);
-  
-  Serial.println(buttonState);  
-  
-  if (buttonState == 1)
-  {
-    WriteLED(55, 221,215,0);
-  }
-  else
-  {
-    WriteLED(0, 0, 0,0);
-  }
+  //Not used due to deep sleep
 }
