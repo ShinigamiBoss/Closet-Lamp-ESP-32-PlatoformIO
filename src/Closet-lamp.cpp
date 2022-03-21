@@ -8,7 +8,7 @@ int ButtonIn = 32;
 void setup()
 {
   //Setup external wakeup
-  esp_sleep_enable_ext0_wakeup(GPIO_NUM_32, 1);
+  esp_sleep_enable_ext0_wakeup(GPIO_NUM_32, 0);
 
   // initialize serial communication at 9600 bits per second:
   Serial.begin(9600);
@@ -20,7 +20,7 @@ void setup()
   //Set button input
   pinMode(ButtonIn, INPUT_PULLUP);
 
-  while(digitalRead(ButtonIn) == 1)
+  while(digitalRead(ButtonIn) == LOW)
   {
     WriteLED(55, 221, 215, 0);
   }
