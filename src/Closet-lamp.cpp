@@ -22,6 +22,7 @@ void setup()
 
   while(digitalRead(ButtonIn) == LOW)
   {
+    //turn on the LED
     WriteLED(55, 221, 215, 0);
   }
 
