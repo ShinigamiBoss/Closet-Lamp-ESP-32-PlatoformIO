@@ -5,7 +5,7 @@ int B_Pin = 21;
 int W_Pin = 19;
 
 // Setting PWM frequency, channels and bit resolution
-const int freq = 5000;
+const int freq = 26000;
 const int redChannel = 0;
 const int greenChannel = 1;
 const int blueChannel = 2;
@@ -44,4 +44,12 @@ void WriteLED(int R,int G,int B,int W)
   ledcWrite(greenChannel, G);
   ledcWrite(blueChannel, B);
   ledcWrite(whiteChannel, W);
+}
+
+void WriteLED(int Values[4])
+{
+  ledcWrite(redChannel, Values[1]);
+  ledcWrite(greenChannel, Values[2]);
+  ledcWrite(blueChannel, Values[3]);
+  ledcWrite(whiteChannel, Values[4]);
 }
