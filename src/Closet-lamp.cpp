@@ -3,7 +3,7 @@
 
 // Button state read
 uint16_t buttonState;
-int ButtonIn = 32;
+int ButtonIn = 12;
 
 int DarkSeaGreen[4] = {193, 255, 193, 0};
 int MediumTurquoise[4] = {112, 219, 219, 0};
@@ -17,7 +17,7 @@ int Test2[4] = {0, 128, 255, 0};
 int Test3[4] = {0, 0, 255, 0};
 
 
-#define ONBOARD_LED 2
+#define ONBOARD_LED 22
 
 void setup()
 {
@@ -28,16 +28,16 @@ void setup()
   Serial.begin(9600);
   Serial.println("Starting process...");
   // Set pins number
-  SetPins(23, 22, 21, 19);
+  SetPins(32, 33, 25, 26);
   InitializeLED();
 
   //Set button input
   pinMode(ButtonIn, INPUT_PULLUP);
 
-  pinMode(ONBOARD_LED,OUTPUT);
+  //pinMode(ONBOARD_LED,OUTPUT);
 
-  Serial.println("Digital read: ");
-  Serial.println(digitalRead(ButtonIn));
+  //Serial.println("Digital read: ");
+  //Serial.println(digitalRead(ButtonIn));
 
   while(digitalRead(ButtonIn) == HIGH)
   {

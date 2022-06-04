@@ -1,8 +1,8 @@
 //Pin definitions
-int R_Pin = 23;
-int G_Pin = 22;
-int B_Pin = 21;
-int W_Pin = 19;
+int R_Pin = 32;
+int G_Pin = 33;
+int B_Pin = 25;
+int W_Pin = 26;
 
 // Setting PWM frequency, channels and bit resolution
 const int freq = 26000;
