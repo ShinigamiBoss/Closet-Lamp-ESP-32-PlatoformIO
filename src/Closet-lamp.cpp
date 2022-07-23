@@ -22,7 +22,7 @@ int Test3[4] = {0, 0, 255, 0};
 void setup()
 {
   //Setup external wakeup
-  esp_sleep_enable_ext0_wakeup(GPIO_NUM_32, 1);
+  esp_sleep_enable_ext0_wakeup(GPIO_NUM_12, 1);
 
   // initialize serial communication at 9600 bits per second:
   Serial.begin(9600);
